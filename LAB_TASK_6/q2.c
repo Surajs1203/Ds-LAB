@@ -27,7 +27,7 @@ void initializeList() {
         printf("Do you want to continue? [0 for NO & 1 for YES]: ");
         scanf("%d", &continueChoice);
     }
-    lastNode->nextNode = headNode;  // Making the list circular
+    lastNode->nextNode = headNode;  
 }
 
 void insertNode() {
