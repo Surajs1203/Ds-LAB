@@ -46,18 +46,17 @@ void delete_end() {
         return;
     }
 
-    // If there's only one node in the list
+    
     if (head->next == NULL) {
         free(head);
         head = NULL;
     } else {
-        // Move temp to the last node
+        
         temp = head;
         while (temp->next != NULL) {
             temp = temp->next;
         }
         
-        // Adjust the pointers of the second last node
         temp->prev->next = NULL;
         free(temp);
     }
