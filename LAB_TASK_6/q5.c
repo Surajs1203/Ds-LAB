@@ -50,7 +50,7 @@ void delete_pos() {
     printf("Enter the position to delete: ");
     scanf("%d", &pos);
     
-    // Check if the list is empty
+    
     if (head == NULL) {
         printf("The list is empty. No node to delete.\n");
         return;
@@ -59,26 +59,24 @@ void delete_pos() {
     struct node *curr = head;
     int i = 1;
     
-    // Traverse the list to find the node at the specified position
     while (curr != NULL && i < pos) {
         curr = curr->next;
         i++;
     }
 
-    // If the position is out of bounds
+    
     if (curr == NULL) {
         printf("Position out of bounds.\n");
         return;
     }
 
-    // If the node to be deleted is the first node (head)
     if (curr == head) {
         head = curr->next;
-        if (head != NULL) {  // If there are more nodes, set the previous pointer of the new head to NULL
+        if (head != NULL) { 
             head->prev = NULL;
         }
     } else {
-        // Adjust the pointers of the previous and next nodes
+       
         if (curr->prev != NULL) {
             curr->prev->next = curr->next;
         }
@@ -87,7 +85,7 @@ void delete_pos() {
         }
     }
 
-    // Free the memory of the node to be deleted
+    
     free(curr);
     printf("Node at position %d deleted.\n", pos);
 }
