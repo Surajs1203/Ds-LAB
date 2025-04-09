@@ -51,7 +51,7 @@ void display_backward() {
         return;
     }
 
-    temp = newnode;  // 'newnode' points to the last node
+    temp = newnode;  
     while (temp != NULL) {
         printf("%d ", temp->data);
         temp = temp->prev;
