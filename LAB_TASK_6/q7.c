@@ -36,14 +36,14 @@ void insert_beginning() {
     printf("Enter the data: ");
     scanf("%d", &bnode->data);
     
-    bnode->prev = NULL;  // New node has no previous node
-    bnode->next = head;  // New node points to the old head
+    bnode->prev = NULL;  
+    bnode->next = head; 
     
     if (head != NULL) {
-        head->prev = bnode;  // Old head's previous pointer points to the new node
+        head->prev = bnode;  
     }
     
-    head = bnode;  // Move the head to point to the new node
+    head = bnode;  
 }
 
 void display_forward() {
