@@ -36,17 +36,17 @@ void insert_end() {
     printf("Enter the data: ");
     scanf("%d", &cnode->data);
     
-    cnode->next = NULL;  // New node is going to be the last node, so its next is NULL
+    cnode->next = NULL;  
     if (head == NULL) {
-        // If the list is empty, the new node becomes the head
+       
         head = cnode;
-        cnode->prev = NULL;  // No previous node as it's the first node
+        cnode->prev = NULL;  
     } else {
         temp->next = cnode;
         cnode->prev = temp;
     }
     
-    temp = cnode;  // Update temp to point to the newly added node
+    temp = cnode;  
 }
 
 void display_forward() {
@@ -59,10 +59,10 @@ void display_forward() {
 }
 
 int main() {
-    create();  // Create the initial list
-    insert_end();  // Insert a new node at the end
+    create();  
+    insert_end(); 
     printf("List after insertion at the end: ");
-    display_forward();  // Display the updated list
+    display_forward(); 
     
     return 0;
 }
