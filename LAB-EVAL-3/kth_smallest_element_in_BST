@@ -1,0 +1,49 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct Node {
+    int data;
+    struct Node* left;
+    struct Node* right;
+};
+
+struct Node* newNode(int value) {
+    struct Node* node = (struct Node*)malloc(sizeof(struct Node));
+    node->data = value;
+    node->left = node->right = NULL;
+    return node;
+}
+
+void kthSmallest(struct Node* root, int k, int* count, int* result) {
+    if (root == NULL)
+        return;
+
+    kthSmallest(root->left, k, count, result);
+    (*count)++;
+    if (*count == k) {
+        *result = root->data;
+        return;
+    }
+    kthSmallest(root->right, k, count, result);
+}
+
+int findKthSmallest(struct Node* root, int k) {
+    int count = 0;
+    int result = -1;
+    kthSmallest(root, k, &count, &result);
+    return result;
+}
+
+int main() {
+    struct Node* root = newNode(5);
+    root->left = newNode(3);
+    root->right = newNode(7);
+    root->left->left = newNode(2);
+    root->left->right = newNode(4);
+    root->right->left = newNode(6);
+    root->right->right = newNode(8);
+
+    int k = 3;
+    printf("The %dth smallest element is %d\n", k, findKthSmallest(root, k));
+    return 0;
+}
